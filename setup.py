@@ -14,7 +14,10 @@ import os
 import glob
 import shutil
 import subprocess
-from setuptools import setup, Extension
+try:
+    from setuptools import setup, Extension
+except ImportError:
+    from distutils.core import setup, Extension
 
 version = '2.0a1'
 
@@ -66,7 +69,6 @@ setup(
     author='TUBITAK/UEKAE, Safa Arıman, Erdem Ersoy, Ersoy Kardesler',
     description='Python XML API based on the iksemel library',
     long_description=open('README.md').read(),
-    long_description_content_type='text/markdown',
     ext_modules=[
         Extension(
             'piksemel',
@@ -74,7 +76,7 @@ setup(
             extra_compile_args=["-fvisibility=hidden"]
         )
     ],
-    python_requires='>=3.6',
+    zip_safe=False,
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
