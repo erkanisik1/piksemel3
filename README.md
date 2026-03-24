@@ -1,4 +1,4 @@
-# Piksemel 2.1
+# Piksemel 3.0.0
 
 Python XML API based on the iksemel library.
 Copyright (C) 2005-2006 TUBITAK/UEKAE, 2019 Safa Arıman, 2020 Erdem Ersoy, 2022 Ersoy Kardesler
