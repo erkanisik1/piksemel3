@@ -14,16 +14,14 @@ import os
 import glob
 import shutil
 import subprocess
-try:
-    from setuptools import setup, Extension
-except ImportError:
-    from distutils.core import setup, Extension
+from setuptools import setup, Extension
 
-version = '2.0a1'
+version = '3.0.0'
 
 distfiles = """
     README.md
     setup.py
+    pyproject.toml
     src/iksemel.c
     src/iksemel.h
     src/pyiks.c
@@ -63,32 +61,18 @@ elif 'test' in sys.argv:
     sys.exit(1)
 
 
-setup(
-    name='piksemel',
-    version=version,
-    author='TUBITAK/UEKAE, Safa Arıman, Erdem Ersoy, Ersoy Kardesler',
-    description='Python XML API based on the iksemel library',
-    long_description=open('README.md').read(),
-    ext_modules=[
-        Extension(
-            'piksemel',
-            sources=['src/iksemel.c', 'src/pyiks.c'],
-            extra_compile_args=["-fvisibility=hidden"]
-        )
-    ],
-    zip_safe=False,
-    classifiers=[
-        'Development Status :: 4 - Beta',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU General Public License v2 (GPLv2)',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-        'Programming Language :: Python :: 3.10',
-        'Programming Language :: Python :: 3.11',
-        'Programming Language :: C',
-        'Topic :: Text Processing :: Markup :: XML',
-    ],
-)
+if __name__ == "__main__":
+    # Modern setup with pyproject.toml compatibility
+    if len(sys.argv) > 1 and sys.argv[1] == "install":
+        print("Use 'pip install .' instead of 'python setup.py install' for modern installation")
+        sys.exit(1)
+    
+    setup(
+        ext_modules=[
+            Extension(
+                'piksemel',
+                sources=['src/iksemel.c', 'src/pyiks.c'],
+                extra_compile_args=["-fvisibility=hidden"]
+            )
+        ],
+    )

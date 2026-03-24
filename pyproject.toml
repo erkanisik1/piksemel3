@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "piksemel"
+version = "3.0.0"
+description = "Python3 XML API based on the iksemel library"
+readme = "README.md"
+authors = [
+    {name = "TUBITAK/UEKAE"},
+    {name = "Safa Arıman"},
+    {name = "Erdem Ersoy"},
+    {name = "Ersoy Kardesler"},
+    {name = "Erkan IŞIK"}
+]
+license = {text = "GPL-2.0"}
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: C",
+    "Topic :: Text Processing :: Markup :: XML",
+]
+requires-python = ">=3.6"
+
+[tool.setuptools]
+zip-safe = false
